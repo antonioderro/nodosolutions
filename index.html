@@ -169,7 +169,7 @@ ul,ol{margin:0;padding:0}
 .hero-head > :nth-child(2){animation-delay:.08s}
 .hero-head > :nth-child(3){animation-delay:.16s}
 .hero-head > :nth-child(4){animation-delay:.24s}
-.hero-head .display{max-width:15ch}
+.hero-head .display{max-width:none}
 .hero-head .lead{max-width:52ch}
 .hero-head .btn-row{margin-top:6px}
 .hero .btn-outline{background:var(--white)}
@@ -659,14 +659,24 @@ ul,ol{margin:0;padding:0}
 /* ---------- dialog ---------- */
 dialog{border:0;border-radius:24px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;color:var(--text);box-shadow:0 30px 80px -20px rgba(7,26,58,.45)}
 dialog::backdrop{background:rgba(7,26,58,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-.dlg{padding:28px;display:grid;gap:14px}
+dialog[open]{display:flex;flex-direction:column;max-height:min(86svh,760px);overflow:hidden}
+.dlg{padding:0;display:flex;flex-direction:column;min-height:0;flex:1}
+.dlg-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px 14px;border-bottom:1px solid var(--hair-2)}
+.dlg-x{width:40px;height:40px;border:0;border-radius:50%;background:var(--fog);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none}
+.dlg-x:hover{background:var(--hair-2)}
+.dlg-x .ic{width:18px;height:18px;stroke-width:2}
+#legalBody{overflow-y:auto;padding:18px 24px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.dlg-foot{display:flex;justify-content:flex-end;padding:14px 24px 20px;border-top:1px solid var(--hair-2)}
 .dlg h2{font-size:24px;font-weight:600;letter-spacing:-0.025em}
+#legalBody{display:grid;gap:12px;font-size:15px;line-height:1.55}
+#legalBody b{color:var(--ink)}
+#legalBody small{color:var(--muted)}
 .dlg .btn{justify-self:end}
 
 /* ---------- statement scrub ---------- */
 .say{position:relative;height:250vh;background:var(--white)}
 .say-pin{position:sticky;top:0;height:100svh;display:grid;align-items:center}
-.say-txt{font-size:clamp(30px,4.2vw,58px);font-weight:600;letter-spacing:-0.032em;line-height:1.14;max-width:22ch;margin-inline:auto;color:var(--ink)}
+.say-txt{text-align:center;font-size:clamp(30px,4.2vw,58px);font-weight:600;letter-spacing:-0.032em;line-height:1.14;max-width:22ch;margin-inline:auto;color:var(--ink)}
 .say-txt .sw{color:#d6dce6;transition:color .3s linear}
 .say-txt .sw.lit{color:var(--ink)}
 .say-txt .sw.hl.lit{color:var(--blue)}
@@ -1259,7 +1269,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 
   <div class="wrap hero-head">
     <p class="eyebrow">Il futuro digitale della nautica</p>
-    <h1 class="display" id="hero-title">Tutta la tua azienda marittima, finalmente digitale.</h1>
+    <h1 class="display" id="hero-title">Tutta la tua azienda,<br>finalmente digitale.</h1>
     <p class="lead">Digitalizza e unifica la gestione di bordo e di terra in un'unica piattaforma.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#contatti" data-request="Consulenza">Richiedi una consulenza</a>
@@ -1331,7 +1341,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 
 <!-- ============ STATEMENT ============ -->
 <section class="say" id="say" aria-label="In breve">
-  <div class="say-pin"><div class="wrap narrow"><p class="say-txt" id="sayTxt">“La digitalizzazione non é un’opzione, è una necessità. 
+  <div class="say-pin"><div class="wrap narrow"><p class="say-txt" id="sayTxt">“La digitalizzazione non è un’opzione, è una necessità. 
 Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 <em>Nodo è il trampolino di lancio verso il futuro della tua azienda.</em></p></div></div>
 </section>
@@ -2116,9 +2126,9 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 
 <dialog id="legalDlg" aria-labelledby="legalTitle">
   <div class="dlg">
-    <h2 id="legalTitle">Informativa privacy</h2>
-    <p id="legalBody"></p>
-    <form method="dialog"><button class="btn btn-primary" type="submit">Chiudi</button></form>
+    <div class="dlg-head"><h2 id="legalTitle">Informativa privacy</h2><button class="dlg-x" type="button" data-close aria-label="Chiudi"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <div id="legalBody"></div>
+    <div class="dlg-foot"><button class="btn btn-primary" type="button" data-close>Chiudi</button></div>
   </div>
 </dialog>
 
@@ -2157,29 +2167,33 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { setMenu(false); burger.focus(); } });
   matchMedia("(min-width: 1061px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
 
-  /* scroll spy */
+  /* scroll spy: the active link is the last nav section whose top has passed 45% of the screen */
   const spyLinks = $$("[data-spy]");
-  const spyIds = ["home", "soluzione", "funzionalita", "piattaforme", "hardware", "servizi", "contatti"];
-  if ("IntersectionObserver" in window) {
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        spyLinks.forEach(l => {
-          const on = l.getAttribute("href") === "#" + en.target.id;
-          l.classList.toggle("active", on);
-          on ? l.setAttribute("aria-current", "true") : l.removeAttribute("aria-current");
-        });
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    spyIds.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
-  }
+  const spyTargets = spyLinks.map(l => [l, document.getElementById(l.getAttribute("href").slice(1))]).filter(([, el]) => el);
+  let spyCur = null, spyTick = false;
+  const runSpy = () => {
+    spyTick = false;
+    const line = innerHeight * 0.45;
+    let active = spyTargets[0] ? spyTargets[0][0] : null;
+    for (const [l, el] of spyTargets) if (el.getBoundingClientRect().top <= line) active = l;
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4 && spyTargets.length) active = spyTargets[spyTargets.length - 1][0];
+    if (active === spyCur) return;
+    spyCur = active;
+    spyLinks.forEach(l => { const on = l === active; l.classList.toggle("active", on); on ? l.setAttribute("aria-current", "true") : l.removeAttribute("aria-current"); });
+  };
+  const reqSpy = () => { if (!spyTick) { spyTick = true; requestAnimationFrame(runSpy); } };
+  addEventListener("scroll", reqSpy, { passive: true });
+  addEventListener("resize", reqSpy);
+  addEventListener("load", reqSpy);
+  runSpy();
 
   /* ---------- split headings into words ---------- */
   $$("h1.display, .h2").forEach(el => {
     if (el.closest("[data-ui]")) return;
-    const txt = el.textContent.trim().replace(/\s+/g, " ");
-    el.setAttribute("aria-label", txt);
-    el.innerHTML = txt.split(" ").map((w, i) => `<span class="w" aria-hidden="true"><span style="--i:${i}">${w}</span></span>`).join(" ");
+    const lines = el.innerHTML.split(/<br\s*\/?>/i).map(h => { const d = document.createElement("div"); d.innerHTML = h; return d.textContent.trim().replace(/\s+/g, " "); }).filter(Boolean);
+    el.setAttribute("aria-label", lines.join(" "));
+    let i = 0;
+    el.innerHTML = lines.map(t => t.split(" ").map(w => `<span class="w" aria-hidden="true"><span style="--i:${i++}">${w}</span></span>`).join(" ")).join("<br>");
     el.classList.add("split");
   });
   /* ---------- reveal ---------- */
@@ -2415,7 +2429,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   const sayTxt = $("#sayTxt");
   (() => { const em = $("em", sayTxt), hl = em.textContent; em.remove(); const base = sayTxt.textContent.trim().split(/\s+/);
     sayTxt.setAttribute("aria-label", base.join(" ") + " " + hl);
-    sayTxt.innerHTML = base.map(w => `<span class="sw" aria-hidden="true">${w}</span>`).join(" ") + " " + hl.split(/\s+/).map(w => `<span class="sw hl" aria-hidden="true">${w}</span>`).join(" "); })();
+    sayTxt.innerHTML = base.map(w => `<span class="sw" aria-hidden="true">${w}</span>`).join(" ") + "<br><br>" + hl.split(/\s+/).map(w => `<span class="sw hl" aria-hidden="true">${w}</span>`).join(" "); })();
   const sws = $$(".sw", sayTxt);
   scene($("#say"), p => { const n = Math.round(seg(p, .06, .86) * sws.length); sws.forEach((w, i) => w.classList.toggle("lit", i < n)); }, pinP);
 
@@ -2647,13 +2661,29 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 
   /* ---------- legal dialog ---------- */
   const dlg = $("#legalDlg");
+  const closeDlg = () => { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); };
+  $$("[data-close]", dlg).forEach(b => b.addEventListener("click", closeDlg));
+  dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
   const legal = {
-    privacy: ["Informativa privacy", "Il testo dell'informativa privacy di Nodo va inserito qui prima della pubblicazione del sito. Deve indicare titolare del trattamento, finalità, base giuridica, tempi di conservazione e diritti dell'interessato."],
-    cookie: ["Cookie policy", "Il testo della cookie policy di Nodo va inserito qui prima della pubblicazione del sito. Questa pagina di prototipo non installa cookie di profilazione."]
+    privacy: ["Informativa privacy", `
+<p><b>Titolare del trattamento</b><br>[Ragione sociale], Via Staffette Partigiane 65, 41122 Modena (MO), P.IVA [numero]. Email: info@nodosolutions.it. Telefono: +39 328 2759573.</p>
+<p><b>Dati raccolti</b><br>Tramite il modulo di contatto: nome e cognome, azienda, email, telefono (facoltativo), numero di imbarcazioni (facoltativo), tipo di richiesta e testo del messaggio. Durante la navigazione, il servizio di hosting registra dati tecnici come indirizzo IP, browser e orario di accesso.</p>
+<p><b>Finalità e base giuridica</b><br>Rispondere alle richieste di consulenza, preventivo o informazioni e gestire gli eventuali contatti successivi (art. 6.1.b GDPR, misure precontrattuali su richiesta dell'interessato). Garantire la sicurezza e il corretto funzionamento del sito (art. 6.1.f GDPR, legittimo interesse). I dati non sono usati per marketing né ceduti a terzi.</p>
+<p><b>Conferimento</b><br>I campi contrassegnati come obbligatori servono per rispondere alla richiesta: senza di essi non è possibile ricontattarti.</p>
+<p><b>Destinatari e fornitori</b><br>I dati sono trattati dal titolare e da fornitori che agiscono come responsabili del trattamento: Formspree Inc. (ricezione e inoltro dei messaggi del modulo) e GitHub Inc. (hosting del sito). Entrambi hanno sede negli Stati Uniti: il trasferimento avviene sulla base delle garanzie previste dal GDPR, come il Data Privacy Framework UE-USA o le clausole contrattuali standard della Commissione europea.</p>
+<p><b>Conservazione</b><br>I dati delle richieste di contatto sono conservati per il tempo necessario a gestirle e comunque non oltre 24 mesi dall'ultimo contatto, salvo l'avvio di un rapporto contrattuale, nel qual caso si applicano i tempi previsti dalla legge.</p>
+<p><b>I tuoi diritti</b><br>Puoi chiedere in ogni momento l'accesso ai tuoi dati, la rettifica, la cancellazione, la limitazione del trattamento, la portabilità e opporti al trattamento (artt. 15-22 GDPR), scrivendo a info@nodosolutions.it. Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
+<p><small>Ultimo aggiornamento: novembre 2026.</small></p>`],
+    cookie: ["Cookie policy", `
+<p><b>Questo sito non usa cookie di profilazione né strumenti di statistica o pubblicità.</b> Per questo motivo non viene mostrato alcun banner per il consenso.</p>
+<p><b>Memorizzazione locale tecnica</b><br>Se scegli "Riduci animazioni", il sito salva questa preferenza nella memoria del tuo browser (localStorage), con la voce <i>ns-motion</i>. Non contiene dati personali, non viene inviata a nessuno e serve solo a ricordare la tua scelta. Puoi cancellarla in qualsiasi momento dalle impostazioni del browser.</p>
+<p><b>Servizi di terze parti</b><br>Il sito è ospitato su GitHub Pages, che può registrare dati tecnici di navigazione per motivi di sicurezza. L'invio del modulo di contatto passa da Formspree, che riceve solo i dati che inserisci nel modulo. Per i dettagli consulta le rispettive informative: GitHub (docs.github.com/site-policy) e Formspree (formspree.io/legal/privacy-policy).</p>
+<p><b>Contatti</b><br>Per domande su questa policy scrivi a info@nodosolutions.it.</p>
+<p><small>Ultimo aggiornamento: novembre 2026.</small></p>`]
   };
   $$("[data-legal]").forEach(b => b.addEventListener("click", () => {
     const [h, p] = legal[b.dataset.legal];
-    $("#legalTitle").textContent = h; $("#legalBody").textContent = p;
+    $("#legalTitle").textContent = h; $("#legalBody").innerHTML = p;
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   }));
 
