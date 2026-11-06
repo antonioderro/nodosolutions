@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nodo · Software per il settore marittimo</title>
-<meta name="description" content="Nodo digitalizza i reparti di bordo e di terra: checklist, ispezioni, equipaggio, certificati, SMS, manutenzione e reporting in un'unica piattaforma per il settore marittimo, con accesso tramite braccialetto NFC.">
+<meta name="description" content="Nodo digitalizza i Moduli di bordo e di terra: checklist, ispezioni, equipaggio, certificati, SMS, manutenzione e reporting in un'unica piattaforma per il settore marittimo, con accesso tramite braccialetto NFC.">
 <meta property="og:title" content="Nodo · Il futuro digitale della nautica">
 <meta property="og:description" content="Checklist di bordo digitali, gestione centralizzata e accesso NFC per le compagnie marittime.">
 <meta property="og:type" content="website">
@@ -982,7 +982,7 @@ dialog::backdrop{background:rgba(7,26,58,.45);-webkit-backdrop-filter:blur(4px);
 .tap{position:absolute;left:0;top:0;width:2.8em;height:2.8em;margin:-1.4em 0 0 -1.4em;border-radius:50%;background:rgba(36,99,232,.18);border:.15em solid rgba(36,99,232,.55);opacity:0;transition:transform .6s var(--ease),opacity .3s;pointer-events:none;z-index:5}
 .tap.show{opacity:1}
 .tap.down{background:rgba(36,99,232,.35);box-shadow:0 0 0 .7em rgba(36,99,232,.12)}
-/* ===== reparti explorer ===== */
+/* ===== Moduli explorer ===== */
 .rx{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;align-items:start}
 .rx-tabs{display:grid;gap:6px}
 .rx-tab{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:12px 14px;border-radius:16px;border:1px solid transparent;background:transparent;color:#fff;cursor:pointer;font:inherit;overflow:hidden;transition:background-color .3s,border-color .3s}
@@ -1176,8 +1176,8 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
         <li><a href="#home" data-spy>Home</a></li>
         <li><a href="#video" data-spy>Video</a></li>
         <li><a href="#soluzione" data-spy>La Soluzione</a></li>
-        <li><a href="#reparti" data-spy>Reparti</a></li>
-        <li><a href="#reparto-checklist" data-spy>Checklist</a></li>
+        <li><a href="#Moduli" data-spy>Moduli</a></li>
+        <li><a href="#Modulo-checklist" data-spy>Checklist</a></li>
         <li><a href="#piattaforme" data-spy>Piattaforme</a></li>
         <li><a href="#hardware" data-spy>Hardware</a></li>
         <li><a href="#servizi" data-spy>Servizi</a></li>
@@ -1197,8 +1197,8 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
       <li><a href="#home">Home</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#soluzione">La Soluzione</a></li>
-      <li><a href="#reparti">Reparti</a></li>
-      <li><a href="#reparto-checklist">Reparto Checklist</a></li>
+      <li><a href="#Moduli">Moduli</a></li>
+      <li><a href="#Modulo-checklist">Modulo Checklist</a></li>
       <li><a href="#piattaforme">Piattaforme</a></li>
       <li><a href="#hardware">Hardware</a></li>
       <li><a href="#servizi">Servizi</a></li>
@@ -1263,13 +1263,13 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
     <p class="lead">Digitalizza e unifica la gestione di bordo e di terra in un'unica piattaforma</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#contatti" data-request="Consulenza">Richiedi una consulenza</a>
-      <a class="btn btn-outline" href="#reparti">Scopri i reparti</a>
+      <a class="btn btn-outline" href="#Moduli">Scopri i Moduli</a>
       <a class="btn btn-outline btn-play" href="#video" data-play-video><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>Guarda il video</a>
     </div>
   </div>
 
   <div class="wrap stage-wrap">
-    <div class="stage ui" id="heroStage" role="img" aria-label="Illustrazione: l'app di bordo con il menu dei moduli (checklist, ispezioni, SMS, documenti equipaggio) e la piattaforma web di amministrazione con la panoramica di tutti i reparti">
+    <div class="stage ui" id="heroStage" role="img" aria-label="Illustrazione: l'app di bordo con il menu dei moduli (checklist, ispezioni, SMS, documenti equipaggio) e la piattaforma web di amministrazione con la panoramica di tutti i Moduli">
       <!-- Laptop -->
       <div class="laptop">
         <div class="lid"><div class="screen">
@@ -1280,14 +1280,14 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
             </div>
             <div class="dash-main adm-main">
               <div class="adm-view on" data-view="0">
-                <div class="dash-top"><div><b>Panoramica flotta</b><small>Tutti i reparti · oggi</small></div><span class="avatar">AD</span></div>
+                <div class="dash-top"><div><b>Panoramica flotta</b><small>Tutti i Moduli · oggi</small></div><span class="avatar">AD</span></div>
                 <div class="kpis k4">
                   <div class="kpi"><small>Checklist completate</small><b data-hk>42</b></div>
                   <div class="kpi"><small>Ispezioni aperte</small><b>3</b></div>
                   <div class="kpi"><small>Certificati in scadenza</small><b class="amber">2</b></div>
                   <div class="kpi"><small>Equipaggio a bordo</small><b>18</b></div>
                 </div>
-                <div class="feed"><div class="feed-h">Attività recenti · tutti i reparti</div><div class="feed-rows" data-feed><div class="fdrow"><span class="pill p-run">Checklist</span><b>Controllo pre-partenza completato</b><span>MV Adriatica</span><span class="t">08:42</span></div><div class="fdrow"><span class="pill p-vio">Ispezioni</span><b>Ispezione PSC: 2 osservazioni chiuse</b><span>MV Tirreno</span><span class="t">08:20</span></div><div class="fdrow"><span class="pill p-ok">Equipaggio</span><b>Ore di riposo registrate</b><span>MV Ligure</span><span class="t">08:05</span></div><div class="fdrow"><span class="pill p-cy">SMS</span><b>Procedura di ormeggio aggiornata · rev. 4</b><span>Flotta</span><span class="t">07:50</span></div><div class="fdrow"><span class="pill p-am">Certificati</span><b>Rinnovo certificato radio pianificato</b><span>MV Ionio</span><span class="t">07:31</span></div><div class="fdrow"><span class="pill p-idle">Inventari</span><b>Richiesta ricambi inviata</b><span>MV Adriatica</span><span class="t">07:12</span></div></div></div>
+                <div class="feed"><div class="feed-h">Attività recenti · tutti i Moduli</div><div class="feed-rows" data-feed><div class="fdrow"><span class="pill p-run">Checklist</span><b>Controllo pre-partenza completato</b><span>MV Adriatica</span><span class="t">08:42</span></div><div class="fdrow"><span class="pill p-vio">Ispezioni</span><b>Ispezione PSC: 2 osservazioni chiuse</b><span>MV Tirreno</span><span class="t">08:20</span></div><div class="fdrow"><span class="pill p-ok">Equipaggio</span><b>Ore di riposo registrate</b><span>MV Ligure</span><span class="t">08:05</span></div><div class="fdrow"><span class="pill p-cy">SMS</span><b>Procedura di ormeggio aggiornata · rev. 4</b><span>Flotta</span><span class="t">07:50</span></div><div class="fdrow"><span class="pill p-am">Certificati</span><b>Rinnovo certificato radio pianificato</b><span>MV Ionio</span><span class="t">07:31</span></div><div class="fdrow"><span class="pill p-idle">Inventari</span><b>Richiesta ricambi inviata</b><span>MV Adriatica</span><span class="t">07:12</span></div></div></div>
               </div>
               <div class="adm-view" data-view="1">
                 <div class="dash-top"><div><b>Utenti e permessi</b><small>Accesso ai moduli per ruolo</small></div><span class="avatar">AD</span></div>
@@ -1331,7 +1331,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 
 <!-- ============ STATEMENT ============ -->
 <section class="say" id="say" aria-label="In breve">
-  <div class="say-pin"><div class="wrap narrow"><p class="say-txt" id="sayTxt">Ogni giorno, a bordo e a terra, decine di processi passano ancora da carta, fogli di calcolo ed email. Checklist, ispezioni, documenti dell'equipaggio, certificati: informazioni sparse in mille posti diversi. <em>Nodo porta tutti i reparti su un'unica piattaforma.</em></p></div></div>
+  <div class="say-pin"><div class="wrap narrow"><p class="say-txt" id="sayTxt">Ogni giorno, a bordo e a terra, decine di processi passano ancora da carta, fogli di calcolo ed email. Checklist, ispezioni, documenti dell'equipaggio, certificati: informazioni sparse in mille posti diversi. <em>Nodo porta tutti i Moduli su un'unica piattaforma.</em></p></div></div>
 </section>
 
 <section class="ticker" aria-hidden="true">
@@ -1345,7 +1345,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
     <div class="head rv">
       <p class="eyebrow">Nodo in 48 secondi</p>
       <h2 class="h2" id="vid-title">Guarda Nodo in azione.</h2>
-      <p class="lead">Dalla checklist di bordo al braccialetto NFC, fino alla centrale a terra: tutti i reparti della tua azienda in un'unica piattaforma.</p>
+      <p class="lead">Dalla checklist di bordo al braccialetto NFC, fino alla centrale a terra: tutti i Moduli della tua azienda in un'unica piattaforma.</p>
     </div>
     <div class="vid-frame rv" id="vidFrame">
       <video id="nodoVideo" preload="metadata" playsinline poster="nodo-video-poster.jpg" aria-label="Video di presentazione di Nodo">
@@ -1357,7 +1357,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
       <div class="vid-meta" aria-hidden="true"><span><i></i>0:48 · Con audio</span></div>
     </div>
     <ul class="vid-points rv">
-      <li><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tutti i reparti, una piattaforma</li>
+      <li><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tutti i Moduli, una piattaforma</li>
       <li><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Accesso con braccialetto NFC</li>
       <li><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Funziona anche offline</li>
     </ul>
@@ -1404,7 +1404,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
     <div class="head rv">
       <p class="eyebrow">La soluzione</p>
       <h2 class="h2" id="sol-title">Una soluzione digitale progettata per la realtà di bordo.</h2>
-      <p class="lead">Nodo collega il lavoro di bordo con la gestione da terra, per ogni reparto. Accesso del personale, compilazione, sincronizzazione e amministrazione lavorano come un unico flusso.</p>
+      <p class="lead">Nodo collega il lavoro di bordo con la gestione da terra, per ogni Modulo. Accesso del personale, compilazione, sincronizzazione e amministrazione lavorano come un unico flusso.</p>
     </div>
     <ol class="flow rv" aria-label="Flusso delle informazioni" id="flow">
       <span class="flow-fill" aria-hidden="true" id="flowFill"></span>
@@ -1418,37 +1418,37 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 </section>
 
 
-<!-- ============ REPARTI ============ -->
-<section class="sec bg-deep eco" id="reparti" aria-labelledby="rep-title">
+<!-- ============ Moduli ============ -->
+<section class="sec bg-deep eco" id="Moduli" aria-labelledby="rep-title">
   <div class="eco-net" aria-hidden="true"></div>
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">I reparti</p>
-      <h2 class="h2" id="rep-title">Un reparto digitale per ogni area dell'azienda.</h2>
-      <p class="lead">Le checklist sono solo l'inizio. Nodo sviluppa software per le diverse aree operative del settore marittimo: reparti che lavorano insieme, sulla stessa piattaforma, con lo stesso accesso.</p>
+      <p class="eyebrow">I Moduli</p>
+      <h2 class="h2" id="rep-title">Un Modulo digitale per ogni area dell'azienda.</h2>
+      <p class="lead">Le checklist sono solo l'inizio. Nodo sviluppa software per le diverse aree operative del settore marittimo: Moduli che lavorano insieme, sulla stessa piattaforma, con lo stesso accesso.</p>
     </div>
     <div class="rx rv">
-      <div class="rx-tabs" role="tablist" aria-label="Reparti"><button class="rx-tab on" type="button" role="tab" aria-selected="true" data-i="0"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-ops"/></svg></span><span class="rx-tx"><b>Operazioni di bordo</b><small>Checklist digitali, procedure e firme dal tablet.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="1"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cargo"/></svg></span><span class="rx-tx"><b>Carico e merci</b><small>Operazioni di carico e documentazione delle merci.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="2"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-crew"/></svg></span><span class="rx-tx"><b>Equipaggio</b><small>Personale, imbarchi, ore di lavoro e riposo.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="3"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cert"/></svg></span><span class="rx-tx"><b>Certificati e scadenze</b><small>Documenti di nave ed equipaggio, con avvisi.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="4"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-safe"/></svg></span><span class="rx-tx"><b>Sicurezza e addestramento</b><small>Esercitazioni, formazione e security.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="5"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-maint"/></svg></span><span class="rx-tx"><b>Manutenzione e inventari</b><small>Sala macchine, ricambi e dotazioni.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="6"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-nav"/></svg></span><span class="rx-tx"><b>Navigazione</b><small>Pianificazione del viaggio e briefing.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="7"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-fleet"/></svg></span><span class="rx-tx"><b>Flotta e reporting</b><small>Report dalla nave alla compagnia.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="8"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-qual"/></svg></span><span class="rx-tx"><b>Qualità e ispezioni</b><small>SMS digitale, audit e azioni correttive.</small></span><span class="rx-prog"><i></i></span></button></div>
+      <div class="rx-tabs" role="tablist" aria-label="Moduli"><button class="rx-tab on" type="button" role="tab" aria-selected="true" data-i="0"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-ops"/></svg></span><span class="rx-tx"><b>Operazioni di bordo</b><small>Checklist digitali, procedure e firme dal tablet.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="1"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cargo"/></svg></span><span class="rx-tx"><b>Carico e merci</b><small>Operazioni di carico e documentazione delle merci.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="2"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-crew"/></svg></span><span class="rx-tx"><b>Equipaggio</b><small>Personale, imbarchi, ore di lavoro e riposo.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="3"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cert"/></svg></span><span class="rx-tx"><b>Certificati e scadenze</b><small>Documenti di nave ed equipaggio, con avvisi.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="4"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-safe"/></svg></span><span class="rx-tx"><b>Sicurezza e addestramento</b><small>Esercitazioni, formazione e security.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="5"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-maint"/></svg></span><span class="rx-tx"><b>Manutenzione e inventari</b><small>Sala macchine, ricambi e dotazioni.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="6"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-nav"/></svg></span><span class="rx-tx"><b>Navigazione</b><small>Pianificazione del viaggio e briefing.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="7"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-fleet"/></svg></span><span class="rx-tx"><b>Flotta e reporting</b><small>Report dalla nave alla compagnia.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="8"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-qual"/></svg></span><span class="rx-tx"><b>Qualità e ispezioni</b><small>SMS digitale, audit e azioni correttive.</small></span><span class="rx-prog"><i></i></span></button></div>
       <div class="rx-panel"><div class="rx-win">
         <div class="rx-bar"><span class="dots"><i></i><i></i><i></i></span><span class="rx-title" data-rxt>Operazioni di bordo</span><span class="rx-brand"><svg><use href="#logo"/></svg>nodo</span></div>
         <div class="rx-body"><div class="rx-view on" data-i="0" role="tabpanel"><div class="rv-k"><b>Checklist di oggi</b><span class="pill p-run">4 attive</span></div><div class="rr" style="--i:0"><b>Controllo pre-partenza</b><span class="rbar"><i style="--w:100%"></i></span><small>Completata</small></div><div class="rr" style="--i:1"><b>Ronda sala macchine</b><span class="rbar"><i style="--w:70%"></i></span><small>In corso</small></div><div class="rr" style="--i:2"><b>Dotazioni di sicurezza</b><span class="rbar"><i style="--w:45%"></i></span><small>In corso</small></div><div class="rr" style="--i:3"><b>Controllo ormeggi</b><span class="rbar"><i style="--w:0%"></i></span><small>Da avviare</small></div></div><div class="rx-view" data-i="1" role="tabpanel"><div class="rv-k"><b>Piano di carico</b><span class="pill p-cy">Viaggio 214</span></div><div class="rr" style="--i:0"><b>Stiva 1</b><span class="rbar"><i style="--w:86%"></i></span><small>86%</small></div><div class="rr" style="--i:1"><b>Stiva 2</b><span class="rbar"><i style="--w:72%"></i></span><small>72%</small></div><div class="rr" style="--i:2"><b>Stiva 3</b><span class="rbar"><i style="--w:94%"></i></span><small>94%</small></div><div class="rr" style="--i:3"><b>Cisterna 4P</b><span class="rbar"><i style="--w:58%"></i></span><small>58%</small></div><div class="rr" style="--i:4"><b>Cisterna 4S</b><span class="rbar"><i style="--w:61%"></i></span><small>61%</small></div><div class="rtags" style="--i:5"><span>MSDS</span><span>Merci pericolose</span><span>Sequenza di carico</span></div></div><div class="rx-view" data-i="2" role="tabpanel"><div class="rv-k"><b>Equipaggio a bordo</b><span class="pill p-ok">18 persone</span></div><div class="rr c4" style="--i:0"><b>L. Bianchi</b><span>Primo ufficiale</span><span>Imbarco 12/03</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:1"><b>M. Rossi</b><span>Direttore di macchina</span><span>Imbarco 02/02</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:2"><b>A. Greco</b><span>Nostromo</span><span>Imbarco 20/03</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:3"><b>S. Conti</b><span>Marinaio</span><span>Imbarco 28/03</span><span class="pill p-am">Da firmare</span></div></div><div class="rx-view" data-i="3" role="tabpanel"><div class="rv-k"><b>Scadenze</b><span class="pill p-am">2 in arrivo</span></div><div class="rr" style="--i:0"><b>Classe</b><span class="rbar"><i style="--w:82%"></i></span><small>14 mesi</small></div><div class="rr warn" style="--i:1"><b>ISM / ISPS</b><span class="rbar"><i style="--w:12%"></i></span><small>30 giorni</small></div><div class="rr warn" style="--i:2"><b>Radio</b><span class="rbar"><i style="--w:18%"></i></span><small>45 giorni</small></div><div class="rr" style="--i:3"><b>Bordo libero</b><span class="rbar"><i style="--w:64%"></i></span><small>9 mesi</small></div><div class="rr" style="--i:4"><b>STCW · GMDSS</b><span class="rbar"><i style="--w:55%"></i></span><small>7 mesi</small></div></div><div class="rx-view" data-i="4" role="tabpanel"><div class="rv-k"><b>Piano esercitazioni</b><span class="pill p-run">Questo mese</span></div><div class="rr c3" style="--i:0"><b>Incendio</b><span>Lun 10:00</span><span class="pill p-ok">Svolta</span></div><div class="rr c3" style="--i:1"><b>Abbandono nave</b><span>Mer 15:00</span><span class="pill p-ok">Svolta</span></div><div class="rr c3" style="--i:2"><b>Uomo a mare</b><span>Ven 10:00</span><span class="pill p-idle">Pianificata</span></div><div class="rr c3" style="--i:3"><b>Security ISPS</b><span>Sab 09:00</span><span class="pill p-idle">Pianificata</span></div></div><div class="rx-view" data-i="5" role="tabpanel"><div class="rv-k"><b>Sala macchine</b><span class="pill p-cy">Ore di moto</span></div><div class="gauges"><div class="gg" style="--i:0"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:72"/></svg><b>12.430 h</b><small>Motore principale</small></div><div class="gg" style="--i:1"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:48"/></svg><b>8.210 h</b><small>Generatore 1</small></div><div class="gg" style="--i:2"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:55"/></svg><b>8.940 h</b><small>Generatore 2</small></div></div><div class="rr warn" style="--i:4"><b>Filtri olio</b><span class="rbar"><i style="--w:30%"></i></span><small>Sotto scorta</small></div></div><div class="rx-view" data-i="6" role="tabpanel"><div class="rv-k"><b>Passage plan</b><span class="pill p-run">Genova → Valencia</span></div><svg class="rmap" viewBox="0 0 560 230"><g stroke="rgba(36,99,232,.12)"><path d="M0 57H560M0 115H560M0 172H560M112 0V230M224 0V230M336 0V230M448 0V230"/></g><path class="rt" d="M40 190L130 150L200 160L300 110L400 95L520 40" pathLength="1"/><g class="wp"><circle cx="40" cy="190" r="7"/><circle cx="130" cy="150" r="6"/><circle cx="200" cy="160" r="6"/><circle cx="300" cy="110" r="6"/><circle cx="400" cy="95" r="6"/><circle cx="520" cy="40" r="7"/></g></svg><div class="rtags" style="--i:3"><span>Meteo</span><span>NAVAREA</span><span>Valutazione rischi</span><span>Briefing</span></div></div><div class="rx-view" data-i="7" role="tabpanel"><div class="rv-k"><b>Noon report · flotta</b><span class="pill p-ok">Inviati 6/6</span></div><div class="bars"><i style="--h:62%;--i:0"></i><i style="--h:80%;--i:1"></i><i style="--h:55%;--i:2"></i><i style="--h:90%;--i:3"></i><i style="--h:72%;--i:4"></i><i style="--h:84%;--i:5"></i><i style="--h:68%;--i:6"></i></div><div class="rtags" style="--i:4"><span>Consumi</span><span>Performance</span><span>Ritardi</span><span>Posizione</span></div></div><div class="rx-view" data-i="8" role="tabpanel"><div class="rv-k"><b>Ispezioni e SMS</b><span class="pill p-vio">1 azione aperta</span></div><div class="rr c3" style="--i:0"><b>Ispezione PSC</b><span>MV Tirreno</span><span class="pill p-ok">Chiusa</span></div><div class="rr c3" style="--i:1"><b>Visita di classe</b><span>MV Adriatica</span><span class="pill p-ok">Chiusa</span></div><div class="rr c3" style="--i:2"><b>Vetting</b><span>MV Ligure</span><span class="pill p-am">Azione aperta</span></div><div class="rr c3" style="--i:3"><b>Audit interno SMS</b><span>Flotta</span><span class="pill p-idle">Pianificato</span></div></div></div>
-      </div><p class="note rx-note">Anteprime illustrative. Ogni reparto si adatta alle procedure della compagnia.</p></div>
+      </div><p class="note rx-note">Anteprime illustrative. Ogni Modulo si adatta alle procedure della compagnia.</p></div>
     </div>
     <div class="eco-foot rv">
-      <p>Ogni reparto si integra con gli altri: un solo accesso, un solo archivio, una sola piattaforma.</p>
+      <p>Ogni Modulo si integra con gli altri: un solo accesso, un solo archivio, una sola piattaforma.</p>
       <a class="btn btn-primary" href="#su-misura">Parliamo del tuo progetto</a>
     </div>
   </div>
 </section>
 
 
-<!-- ============ REPARTO CHECKLIST ============ -->
-<section class="sec rc" id="reparto-checklist" aria-labelledby="rc-title">
+<!-- ============ Modulo CHECKLIST ============ -->
+<section class="sec rc" id="Modulo-checklist" aria-labelledby="rc-title">
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">Reparto · Checklist</p>
-      <h2 class="h2" id="rc-title">Il reparto checklist, dove tutto comincia.</h2>
-      <p class="lead">Le checklist operative sono il cuore della vita di bordo: sono il primo reparto digitalizzato da Nodo e il più completo. Ecco cosa cambia, dalla carta al tablet.</p>
+      <p class="eyebrow">Modulo · Checklist</p>
+      <h2 class="h2" id="rc-title">Il Modulo checklist, dove tutto comincia.</h2>
+      <p class="lead">Le checklist operative sono il cuore della vita di bordo: sono il primo Modulo digitalizzato da Nodo e il più completo. Ecco cosa cambia, dalla carta al tablet.</p>
     </div>
     <div class="ba-block rv">
       <h3>La stessa checklist, prima e dopo.</h3>
@@ -1501,7 +1501,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 <section class="sec bg-fog" id="funzionalita" aria-labelledby="feat-title">
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">Reparto Checklist · Funzionalità</p>
+      <p class="eyebrow">Modulo Checklist · Funzionalità</p>
       <h2 class="h2" id="feat-title">Semplice per chi compila. Completa per chi coordina.</h2>
     </div>
     <div class="bento">
@@ -1796,7 +1796,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
 <section class="sec bg-ice" id="benefici" aria-labelledby="ben-title">
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">Reparto Checklist · Benefici</p>
+      <p class="eyebrow">Modulo Checklist · Benefici</p>
       <h2 class="h2" id="ben-title">Digitalizzare significa risparmiare tempo e risorse.</h2>
       <p class="lead">Stime annuali riportate nella presentazione aziendale Nodo.</p>
     </div>
@@ -2072,14 +2072,14 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="brand" href="#home"><svg aria-hidden="true"><use href="#logo"/></svg><span class="wm">nodo</span></a>
-        <p>Il futuro digitale della nautica. Software per tutti i reparti di bordo e di terra, in un'unica piattaforma, con installazione e assistenza tecnica.</p>
+        <p>Il futuro digitale della nautica. Software per tutti i Moduli di bordo e di terra, in un'unica piattaforma, con installazione e assistenza tecnica.</p>
       </div>
       <div>
         <h4>Esplora</h4>
         <ul>
           <li><a href="#soluzione">La Soluzione</a></li>
-      <li><a href="#reparti">Reparti</a></li>
-          <li><a href="#reparto-checklist">Reparto Checklist</a></li>
+      <li><a href="#Moduli">Moduli</a></li>
+          <li><a href="#Modulo-checklist">Modulo Checklist</a></li>
           <li><a href="#piattaforme">Piattaforme</a></li>
           <li><a href="#hardware">Hardware</a></li>
           <li><a href="#faq">Domande frequenti</a></li>
@@ -2247,7 +2247,7 @@ label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.h
   }
 
 
-  /* ---------- reparti explorer: auto-advance, click to choose ---------- */
+  /* ---------- Moduli explorer: auto-advance, click to choose ---------- */
   const rx = $(".rx");
   if (rx) {
     const tabs = $$(".rx-tab", rx), views = $$(".rx-view", rx), title = $("[data-rxt]", rx);
