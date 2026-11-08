@@ -155,14 +155,17 @@ ul,ol{margin:0;padding:0}
 .nav-cta{margin-left:auto}
 .nav-links + .nav-cta{margin-left:0}
 .burger{display:none;width:44px;height:44px;border:0;background:none;border-radius:12px;cursor:pointer;place-items:center;color:var(--ink)}
-.burger .ic{width:22px;height:22px}
-.burger .i-x{display:none}
-.menu-open .burger .i-x{display:block}
-.menu-open .burger .i-m{display:none}
+.burger{position:relative}
+.burger .bl{position:absolute;left:50%;top:50%;width:20px;height:2px;margin:-1px 0 0 -10px;border-radius:2px;background:currentColor;transition:transform .45s cubic-bezier(.65,0,.35,1)}
+.burger .bl:first-child{transform:translateY(-4px)}
+.burger .bl:last-child{transform:translateY(4px)}
+.menu-open .burger .bl:first-child{transform:translateY(0) rotate(45deg)}
+.menu-open .burger .bl:last-child{transform:translateY(0) rotate(-45deg)}
 .mobile-menu{position:fixed;left:0;right:0;top:calc(56px + env(safe-area-inset-top,0px));bottom:0;z-index:49;background:var(--white);overflow-y:auto;padding:24px var(--gr) 40px var(--gl);animation:menuIn .35s var(--ease)}
 .mobile-menu ul{list-style:none;display:grid;gap:2px;max-width:600px;margin:0 auto}
 .mobile-menu a{display:block;padding:10px 4px;font:600 28px/1.2 var(--font-display);letter-spacing:-0.025em;color:var(--ink);text-decoration:none}
-.mobile-menu .btn{margin:28px auto 0;display:flex;max-width:600px}
+.mobile-menu a.btn{margin:28px auto 0;display:flex;width:100%;max-width:600px;padding:14px 24px;font:600 17px/1.2 var(--font-text);letter-spacing:-0.012em;color:#fff;text-align:center;white-space:normal}
+.mobile-menu a.btn:hover{color:#fff}
 @keyframes menuIn{from{opacity:0;transform:translateY(-8px)}}
 .cta-short{display:none}
 @media (max-width:1060px){
@@ -740,6 +743,24 @@ dialog[open]{display:flex;flex-direction:column;max-height:min(86svh,760px);over
 .hring-ui .nf{width:5cqw;height:5cqw;color:var(--cyan)}
 .hint .arr{width:2cqw;height:2cqw;color:var(--cyan);animation:nudge 1.4s var(--ease) infinite}
 @keyframes nudge{0%,100%{transform:translateX(0);opacity:.35}50%{transform:translateX(.9cqw);opacity:1}}
+.hs-pin{background:radial-gradient(ellipse 80% 90% at 25% 15%,#14305e 0%,#08152b 55%,#050c19 100%);color:#fff;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4cqw;padding:4.5cqw 6cqw}
+.pn-l{display:grid;gap:1.6cqw;align-content:center}
+.pn-f1{display:inline-flex;align-items:center;gap:1cqw;justify-self:start;font-size:1.9cqw;font-weight:600;color:#7be3a6;background:rgba(43,182,115,.14);border-radius:9em;padding:.7cqw 1.8cqw .7cqw 1.2cqw}
+.pn-f1 svg{width:2.2cqw;height:2.2cqw;stroke-width:2.6}
+.pn-who{display:flex;align-items:center;gap:1.6cqw;margin-top:.6cqw}
+.pn-who .avatar{width:5.6cqw;height:5.6cqw;font-size:2cqw}
+.pn-who b{display:block;font-size:2.6cqw;font-weight:600}
+.pn-who small{display:block;font-size:1.9cqw;color:rgba(255,255,255,.65)}
+.pn-t{font-size:3.4cqw;font-weight:600;letter-spacing:-0.02em;margin-top:1.2cqw}
+.pn-dots{display:flex;gap:2cqw}
+.pn-dots i{width:2.4cqw;height:2.4cqw;border-radius:50%;border:.3cqw solid rgba(255,255,255,.55);transition:background-color .2s,border-color .2s,transform .25s var(--ease)}
+.pn-dots i.f{background:var(--cyan);border-color:var(--cyan);transform:scale(1.12)}
+.pn-2fa{display:inline-flex;align-items:center;gap:1cqw;font-size:1.8cqw;color:#9fd4ff;margin-top:.8cqw}
+.pn-2fa svg{width:2.2cqw;height:2.2cqw}
+.pn-pad{display:grid;grid-template-columns:repeat(3,7.4cqw);gap:1.4cqw;direction:ltr}
+.pn-pad i{font-style:normal;height:7.4cqw;border-radius:50%;display:grid;place-items:center;font-size:3cqw;font-weight:500;background:rgba(255,255,255,.08);transition:background-color .15s,transform .15s}
+.pn-pad i.e{background:none;font-size:2.4cqw;color:rgba(255,255,255,.6)}
+.pn-pad i.pr{background:var(--cyan);color:#06213f;transform:scale(.92)}
 .hs-ok{background:var(--blue);color:#fff;display:grid;place-items:center;text-align:center}
 .hs-ok .c{width:14cqw;height:14cqw;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;margin:0 auto 2.6cqw;transform:scale(.5);transition:transform .8s cubic-bezier(.3,1.6,.5,1)}
 .hs-ok.on .c{transform:scale(1)}
@@ -1131,6 +1152,37 @@ dialog[open]{display:flex;flex-direction:column;max-height:min(86svh,760px);over
 /* Title Case: every word starts with a capital in headings, labels, buttons and navigation */
 h1,h2,h3,h4,h5,h6,.eyebrow,.btn,button,.nav-links a,.foot h4,.foot a:not([href^="mailto"]):not([href^="tel"]):not([href^="http"]),
 label,summary,.chip,.chip-t,.pill,.tag,.ba-tag,.lbl,.cl-head,.sheet-h,.inst-h,.hstep,.step-cap{text-transform:capitalize}
+@media (max-height:720px){.mobile-menu a:not(.btn){font-size:24px;padding:7px 4px}}
+/* smart homepage: roles on one swipeable line on phones */
+@media (max-width:640px){
+  .roles{min-width:0}
+  .seg{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-self:stretch;width:100%;scroll-padding-inline:4px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  .seg.at-end{-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px);mask-image:linear-gradient(90deg,transparent,#000 28px)}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{flex:none;white-space:nowrap;scroll-snap-align:start}
+  [dir="rtl"] .seg,[dir="rtl"] .seg.at-end{-webkit-mask-image:none;mask-image:none}
+}
+/* phones: keep the header inside the screen */
+@media (max-width:400px){
+  :root{--gl:max(16px, env(safe-area-inset-left, 0px));--gr:max(16px, env(safe-area-inset-right, 0px))}
+  .nav-in{gap:6px}
+  .brand{gap:8px}
+  .brand .wm{font-size:22px}
+  .brand svg{width:25px;height:25px}
+  .nav-cta.btn{min-height:38px;padding:8px 14px;font-size:14.5px}
+  .nav .lang-btn{height:36px;padding:0 7px}
+  .burger{width:40px;height:40px}
+}
+@media (max-width:340px){
+  .nav-cta.btn{padding:8px 11px;font-size:13.5px}
+  .brand .wm{font-size:20px}
+}
+/* nothing may widen the page on phones (pinch-zoom showed an empty strip on the right) */
+main > section, footer{overflow-x:clip}
+@supports not (overflow:clip){
+  main > section:not(.say):not(.holo), footer, .hero, .harm-win{overflow-x:hidden}
+}
+
 /* ---------- language switcher ---------- */
 .lang{position:relative;flex:none}
 .lang-btn{display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 10px 0 8px;border:1px solid var(--hair);border-radius:var(--r-pill);background:var(--white);color:var(--ink);cursor:pointer;font:600 13px/1 var(--font-text);letter-spacing:.02em;text-transform:uppercase!important;transition:border-color .2s,background-color .2s}
@@ -1175,11 +1227,13 @@ html[lang="zh-Hans"] .display,html[lang="zh-Hans"] .h2{line-height:1.2}
 [dir="rtl"] .flow-fill,[dir="rtl"] .steps-fill{transform-origin:right}
 @media (max-width:820px){[dir="rtl"] .flow::before{left:auto;right:43px}[dir="rtl"] .flow-fill{left:auto;right:42px;transform-origin:top}}
 @media (max-width:860px){[dir="rtl"] .steps::before{left:auto;right:23px}[dir="rtl"] .steps-fill{left:auto;right:22px;transform-origin:top}}
+[dir="rtl"] main,[dir="rtl"] footer{overflow-x:clip}
+[dir="rtl"] .crow .v{display:block;unicode-bidi:isolate}
 [dir="rtl"] .crow .v,[dir="rtl"] input[type="email"],[dir="rtl"] input[type="tel"],[dir="rtl"] input[type="number"]{direction:ltr;text-align:right}
 [dir="rtl"] .field select{background-position:left 12px center;padding-right:14px;padding-left:40px}
 [dir="rtl"] .faq .ans{padding:0 4px 24px 56px}
 [dir="rtl"] .copy[data-done]::after{right:auto;left:46px}
-[dir="rtl"] .foot address span{unicode-bidi:plaintext}
+[dir="rtl"] .foot address span{unicode-bidi:isolate;direction:ltr;text-align:right}
 
 </style>
 </head>
@@ -1294,8 +1348,7 @@ html[lang="zh-Hans"] .display,html[lang="zh-Hans"] .h2{line-height:1.2}
       </ul>
     </div>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Apri menu">
-      <svg class="ic i-m" aria-hidden="true"><use href="#i-menu"/></svg>
-      <svg class="ic i-x" aria-hidden="true"><use href="#i-x"/></svg>
+      <span class="bl" aria-hidden="true"></span><span class="bl" aria-hidden="true"></span>
     </button>
   </div>
 </header>
@@ -1862,9 +1915,9 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     <div class="holo-head">
       <p class="eyebrow rv">Braccialetto NFC</p>
       <h2 class="h2 split" id="nfc-title">Il tuo accesso, al polso.</h2>
-      <p class="rv" style="--d:3">Avvicina il braccialetto al sensore NFC. E Il tablet si sblocca.</p>
+      <p class="rv" style="--d:3">Avvicina il braccialetto al sensore NFC, inserisci il tuo PIN personale e il tablet si sblocca.</p>
     </div>
-    <div class="holo-stage" id="holoStage" role="img" aria-label="Un braccio olografico con il braccialetto NFC si avvicina al sensore del tablet; il tablet legge il chip e si sblocca, mostrando le checklist dell'utente.">
+    <div class="holo-stage" id="holoStage" role="img" aria-label="Un braccio olografico con il braccialetto NFC si avvicina al sensore del tablet; il tablet legge il chip, chiede il PIN personale e si sblocca, mostrando le checklist dell'utente.">
       <div class="htab" id="htab">
         <div class="hscr" data-ui>
           <div class="hs hs-lock on" data-s="lock">
@@ -1872,6 +1925,16 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
             <div class="d">MV Adriatica · Ponte di comando</div>
             <div class="lk"><svg class="ic"><use href="#i-lock"/></svg><span id="hLk">Bloccato</span></div>
             <div class="hint"><div class="hint-l" id="hHint">Avvicina il braccialetto<small>al sensore NFC</small></div><div class="hring-ui"><svg class="r" viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="46"/><circle class="fg" id="hRing" cx="50" cy="50" r="46"/></svg><svg class="ic nf"><use href="#i-nfc"/></svg></div><svg class="ic arr"><use href="#i-chr"/></svg></div>
+          </div>
+          <div class="hs hs-pin" data-s="pin">
+            <div class="pn-l">
+              <div class="pn-f1"><svg class="ic"><use href="#i-check"/></svg><span>Braccialetto riconosciuto</span></div>
+              <div class="pn-who"><span class="avatar">LB</span><div><b>Luca Bianchi</b><small>Ufficiale di coperta</small></div></div>
+              <div class="pn-t">Inserisci il PIN personale</div>
+              <div class="pn-dots" id="hPinDots"><i></i><i></i><i></i><i></i></div>
+              <div class="pn-2fa"><svg class="ic"><use href="#i-shield"/></svg><span>Autenticazione a due fattori</span></div>
+            </div>
+            <div class="pn-pad" id="hPad"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i class="e"></i><i>0</i><i class="e">⌫</i></div>
           </div>
           <div class="hs hs-ok" data-s="ok"><div><div class="c"><svg class="ic"><use href="#i-check"/></svg></div><b>Ciao, Luca</b><span>Ufficiale di coperta · accesso consentito</span></div></div>
           <div class="hs hs-app" data-s="home">
@@ -1933,7 +1996,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     </div>
     <div class="holo-steps" aria-live="polite">
       <div class="hstep" id="hStep"><b id="hStT">Avvicina il braccialetto al tablet.</b><span id="hStS">Il braccialetto contiene un chip NFC associato solo a te.</span></div>
-      <div class="hdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><button class="hplay" type="button" id="hPlay"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg>Riproduci</button></div>
+      <div class="hdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><button class="hplay" type="button" id="hPlay"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg>Riproduci</button></div>
     </div>
   </div>
 </section>
@@ -1941,8 +2004,8 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 <section class="sec bg-deep nfc-adv" aria-label="Vantaggi del braccialetto">
   <div class="wrap">
     <div class="adv">
-      <div class="rv"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><h3>Sicurezza</h3><p>Chip NFC con supporto a crittografia e protocolli sicuri.</p></div>
-      <div class="rv" style="--d:1"><svg class="ic" aria-hidden="true"><use href="#i-nfc"/></svg><h3>Semplicità</h3><p>Per il login basta avvicinare il braccialetto al dispositivo.</p></div>
+      <div class="rv"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><h3>Autenticazione a due fattori</h3><p>Braccialetto NFC e PIN personale: due fattori distinti per ogni accesso, con chip che supporta crittografia e protocolli sicuri.</p></div>
+      <div class="rv" style="--d:1"><svg class="ic" aria-hidden="true"><use href="#i-nfc"/></svg><h3>Semplicità</h3><p>Per il login basta avvicinare il braccialetto al dispositivo e digitare un PIN di poche cifre.</p></div>
       <div class="rv" style="--d:2"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg><h3>Comfort</h3><p>Design leggero, pensato per essere indossato a lungo durante il turno.</p></div>
       <div class="rv" style="--d:3"><svg class="ic" aria-hidden="true"><use href="#i-id"/></svg><h3>Personalizzazione</h3><p>Identificativo associato in modo univoco a ciascun utente e progettato per non essere duplicabile.</p></div>
     </div>
@@ -2250,6 +2313,25 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   };
   burger.addEventListener("click", () => setMenu(burger.getAttribute("aria-expanded") !== "true"));
   $$("a", menu).forEach(a => a.addEventListener("click", () => setMenu(false)));
+  /* in-page links: close the menu first, then scroll; re-aim once the page has settled */
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
+    const id = decodeURIComponent(a.getAttribute("href").slice(1));
+    const el = id ? document.getElementById(id) : null;
+    if (!el) return;
+    e.preventDefault();
+    if (!menu.hidden) setMenu(false);
+    const off = () => parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 72;
+    const go = smooth => window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + scrollY - off()), behavior: smooth ? "smooth" : "auto" });
+    requestAnimationFrame(() => {
+      go(!reduce);
+      let n = 0;
+      const fix = () => { const d = el.getBoundingClientRect().top - off(); if (Math.abs(d) > 6 && n++ < 3) { go(false); setTimeout(fix, 250); } };
+      setTimeout(fix, reduce ? 50 : 1100);
+    });
+    try { history.pushState(null, "", "#" + id); } catch (_) {}
+  });
   addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { setMenu(false); burger.focus(); } });
   matchMedia("(min-width: 1061px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
 
@@ -2390,8 +2472,10 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     coperta: [["Dotazioni di sicurezza", "5 voci"], ["Controllo ormeggi", "6 voci"], ["Ispezione mezzi di salvataggio", "8 voci"]]
   };
   const roleList = $("#roleList");
+  $$(".seg").forEach(sg => { const f = () => sg.classList.toggle("at-end", sg.scrollLeft + sg.clientWidth >= sg.scrollWidth - 4); sg.addEventListener("scroll", f, { passive: true }); f(); });
   $$("[data-role]").forEach(b => b.addEventListener("click", () => {
     $$("[data-role]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    const sg = b.parentElement; if (sg.scrollWidth > sg.clientWidth + 2) sg.scrollTo({ left: b.offsetLeft - (sg.clientWidth - b.offsetWidth) / 2, behavior: "smooth" });
     roleList.innerHTML = roles[b.dataset.role].map(([t, m]) => `<li>${t}<small>${m}</small></li>`).join("");
   }));
 
@@ -2535,9 +2619,11 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   const hScr = Object.fromEntries($$(".hs", htab).map(x => [x.dataset.s, x]));
   const hRing = $("#hRing"), hLk = $("#hLk"), hHint = $("#hHint"), hRows = $$("#hRows .hrow"), hHot = $("#hHot"), hItems = $$("#hItems li"), hN = $("#hN"), hBar = $("#hBar"), hSnd = $("#hSnd"), hSndT = $("#hSndT");
   const hStep = $("#hStep"), hStT = $("#hStT"), hStS = $("#hStS"), hDots = $$(".hdots i");
+  const hPinDots = $$("#hPinDots i"), hPad = $$("#hPad i"), PIN = [4, 7, 1, 9];
   const HSTEPS = [
     ["Avvicina il polso al tablet.", "Il braccialetto contiene un chip NFC associato solo a te."],
-    ["Il sensore legge il chip.", "Un istante, senza digitare password."],
+    ["Il sensore legge il chip.", "Primo fattore: il braccialetto che indossi."],
+    ["Inserisci il tuo PIN personale.", "Secondo fattore: un codice che conosci solo tu. Insieme formano l'autenticazione a due fattori."],
     ["Il tablet si sblocca.", "L'accesso è personale e registra chi sta compilando."],
     ["Solo le checklist del tuo ruolo.", "Ogni ufficiale trova subito ciò che gli compete nel turno."],
     ["Compili. Invii. Anche senza rete.", "Se manca la connessione, la checklist parte da sola più tardi."]
@@ -2568,8 +2654,8 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     const intro = ease3(seg(q, 0, .06));
     setStyle(htab, "opacity", lerp(.15, 1, intro).toFixed(3));
     setStyle(htab, "transform", `scale(${lerp(.92, 1, intro).toFixed(4)})`);
-    const inA = eio(seg(q, .05, .3)), out = eio(seg(q, .47, .62));
-    const reveal = seg(q, .04, .2) * (1 - seg(q, .48, .6));
+    const inA = eio(seg(q, .05, .3)), out = eio(seg(q, .45, .54));
+    const reveal = seg(q, .04, .2) * (1 - seg(q, .46, .54));
     const hover = 1 - seg(q, .24, .3);
     const bob = Math.sin(time / 650) * geo.ah * .035 * hover;
     const dx = (1 - inA) * geo.aw * .38 + out * geo.aw * .3;
@@ -2579,21 +2665,28 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     const rx = ((1 - reveal) * 100).toFixed(2); setStyle(harmWin, "transform", `translate3d(${rx}%,0,0)`); setStyle(harmIn, "transform", `translate3d(-${rx}%,0,0)`);
     setStyle(harm, "visibility", reveal > 0.002 ? "visible" : "hidden");
     holo.classList.toggle("reading", q >= .3 && q < .45);
-    holo.classList.toggle("unlocked", q >= .45);
+    holo.classList.toggle("unlocked", q >= .58);
     setStyle(hRing, "strokeDashoffset", (289 * (1 - seg(q, .3, .44))).toFixed(1));
     if (q < .3) { hShow("lock"); setText(hLk, "Bloccato"); if (put(hHint, "h", 0)) hHint.firstChild.textContent = "Avvicina il braccialetto"; }
     else if (q < .45) { hShow("lock"); setText(hLk, "Lettura del chip…"); if (put(hHint, "h", 1)) hHint.firstChild.textContent = "Lettura in corso"; }
-    else if (q < .58) hShow("ok");
-    else if (q < .76) { hShow("home"); const n = Math.round(seg(q, .6, .7) * 3); hRows.forEach((r, i) => r.classList.toggle("in", i < n)); hHot.classList.toggle("hot", q > .72); }
+    else if (q < .58) {
+      hShow("pin");
+      const f = seg(q, .5, .572) * 4, n = Math.min(4, Math.floor(f + .001));
+      if (put(hPad[0].parentElement, "n", n)) hPinDots.forEach((d, i) => d.classList.toggle("f", i < n));
+      const key = n < 4 && f - n > .15 && f - n < .75 ? PIN[n] : -1;
+      if (put(hPad[0].parentElement, "k", key)) hPad.forEach(b => b.classList.toggle("pr", b.textContent === String(key)));
+    }
+    else if (q < .65) hShow("ok");
+    else if (q < .8) { hShow("home"); const n = Math.round(seg(q, .67, .75) * 3); hRows.forEach((r, i) => r.classList.toggle("in", i < n)); hHot.classList.toggle("hot", q > .77); }
     else {
       hShow("list");
-      const k = Math.round(seg(q, .79, .93) * 5);
+      const k = Math.round(seg(q, .82, .94) * 5);
       hItems.forEach((li, i) => li.classList.toggle("done", i < k));
       setText(hN, k + "/5"); if (put(hBar, "p", k)) hBar.style.setProperty("--p", k / 5);
       const sent = q > .965; const cls = sent ? "sent" : k === 5 ? "ready" : ""; if (put(hSnd, "cls", cls)) hSnd.className = cls;
       setText(hSnd, sent ? "Inviata" : "Invia checklist"); setText(hSndT, sent ? "Visibile sulla piattaforma web" : "Compilata da L. Bianchi");
     }
-    const st = q < .3 ? 0 : q < .45 ? 1 : q < .58 ? 2 : q < .76 ? 3 : 4;
+    const st = q < .3 ? 0 : q < .45 ? 1 : q < .58 ? 2 : q < .65 ? 3 : q < .8 ? 4 : 5;
     if (st !== hStepI) { hStepI = st; hStT.textContent = HSTEPS[st][0]; hStS.textContent = HSTEPS[st][1]; hStep.classList.remove("hswap"); void hStep.offsetWidth; hStep.classList.add("hswap"); hDots.forEach((d, i) => d.classList.toggle("on", i === st)); }
   };
   /* The scene follows the scroll. When the visitor stops scrolling (or the page cannot scroll,
@@ -2637,7 +2730,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
     sws.forEach(w => w.classList.add("lit"));
     flowFill.style.transform = "none"; flowLis.forEach(li => li.classList.add("lit"));
     if (stepsFill) stepsFill.style.transform = "none"; stepLis.forEach(li => li.classList.add("lit"));
-    requestAnimationFrame(() => { hRender(.66, 0); harm.style.visibility = "hidden"; });
+    requestAnimationFrame(() => { hRender(.76, 0); harm.style.visibility = "hidden"; });
     $("#hPlay").hidden = true;
   }
 
