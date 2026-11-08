@@ -88,6 +88,9 @@ ul,ol{margin:0;padding:0}
 .sec{padding-block:var(--sec);position:relative}
 .bg-fog{background:var(--fog)}
 .bg-ice{background:linear-gradient(180deg,var(--ice) 0%,var(--fog) 100%)}
+.bg-ice2{background:linear-gradient(180deg,var(--fog) 0%,var(--ice) 100%)}
+#hardware.bg-fog .hw{background:#fff}
+#hardware.bg-fog .hw-art{background:linear-gradient(180deg,#E9F1FF,#fff)}
 .bg-deep{background:var(--deep);color:var(--on-dark)}
 .bg-deep h2,.bg-deep h3{color:#fff}
 
@@ -337,7 +340,6 @@ ul,ol{margin:0;padding:0}
 .flow li{display:grid;justify-items:center;text-align:center;gap:10px;position:relative}
 .node{width:88px;height:88px;border-radius:50%;background:var(--white);display:grid;place-items:center;color:var(--blue);box-shadow:0 0 0 1px var(--hair);position:relative;z-index:1;margin-bottom:8px}
 .node .ic{width:34px;height:34px;stroke-width:1.5}
-.flow li:last-child .node{background:var(--blue);color:#fff;box-shadow:none}
 .flow b{font:600 19px/1.25 var(--font-display);letter-spacing:-0.02em;color:var(--ink)}
 .flow small{font-size:15px;line-height:1.45;color:var(--muted);max-width:22ch}
 .sol-foot{max-width:62ch;margin:clamp(48px,5vw,64px) auto 0;text-align:center;font-size:clamp(17px,1.5vw,19px);color:var(--text)}
@@ -412,7 +414,7 @@ ul,ol{margin:0;padding:0}
 .is-offline .link .lbl-link{color:var(--warn)}
 .syncing .link .pkt{animation:pkt 1.1s var(--ease) both}
 @keyframes pkt{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 12px);opacity:0}}
-.plat-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);margin-top:clamp(40px,5vw,56px)}
+.plat-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px);margin-top:clamp(40px,5vw,56px)}
 .plat-col{display:grid;gap:10px;align-content:start}
 .plat-col h3{font-size:clamp(24px,2.4vw,30px);font-weight:600;letter-spacing:-0.025em}
 .plat-col p{color:var(--muted)}
@@ -1009,6 +1011,10 @@ dialog[open]{display:flex;flex-direction:column;max-height:min(86svh,760px);over
 .rx{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;align-items:start}
 .rx-tabs{display:grid;gap:6px}
 .rx-tab{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:12px 14px;border-radius:16px;border:1px solid transparent;background:transparent;color:#fff;cursor:pointer;font:inherit;overflow:hidden;transition:background-color .3s,border-color .3s}
+.rx-more{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:16px;border:1px dashed rgba(100,199,232,.45);color:#fff;text-decoration:none;margin-top:4px;transition:background-color .25s,border-color .25s}
+.rx-more:hover{background:rgba(255,255,255,.05);border-color:var(--sky)}
+.rx-more .rx-ic{background:transparent;border:1px dashed rgba(100,199,232,.6)}
+.rx-more .rx-tx small{max-height:40px}
 .rx-tab:hover{background:rgba(255,255,255,.05)}
 .rx-tab.on{background:rgba(255,255,255,.08);border-color:rgba(100,199,232,.35)}
 .rx-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(100,199,232,.12);color:var(--sky)}
@@ -1069,6 +1075,7 @@ dialog[open]{display:flex;flex-direction:column;max-height:min(86svh,760px);over
   .rx-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gl) * -1);padding:0 var(--gl) 4px;scroll-snap-type:x mandatory}
   .rx-tabs::-webkit-scrollbar{display:none}
   .rx-tab{flex:none;width:auto;padding:10px 14px;scroll-snap-align:start}
+  .rx-more{flex:none;margin-top:0;padding:10px 14px;scroll-snap-align:start}
   .rx-tx small{display:none}
   .rx-ic{width:34px;height:34px}
 }
@@ -1529,7 +1536,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
       <p class="lead">Le checklist sono solo l'inizio. Nodo digitalizza le diverse aree operative dell'azienda con moduli su misura integrati in un'unica piattaforma.</p>
     </div>
     <div class="rx rv">
-      <div class="rx-tabs" role="tablist" aria-label="Moduli"><button class="rx-tab on" type="button" role="tab" aria-selected="true" data-i="0"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-ops"/></svg></span><span class="rx-tx"><b>Operazioni di bordo</b><small>Checklist digitali, procedure e firme dal tablet.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="1"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cargo"/></svg></span><span class="rx-tx"><b>Gestione carico</b><small>Operazioni di carico e documentazione delle merci.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="2"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-crew"/></svg></span><span class="rx-tx"><b>Equipaggio</b><small>Personale, imbarchi, ore di lavoro e riposo.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="3"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cert"/></svg></span><span class="rx-tx"><b>Certificati e scadenze</b><small>Documenti di nave ed equipaggio, con avvisi.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="4"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-safe"/></svg></span><span class="rx-tx"><b>Sicurezza e addestramento</b><small>Esercitazioni, formazione e security.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="5"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-maint"/></svg></span><span class="rx-tx"><b>Manutenzione e inventari</b><small>Sala macchine, ricambi e dotazioni.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="6"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-nav"/></svg></span><span class="rx-tx"><b>Navigazione</b><small>Pianificazione del viaggio e briefing.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="7"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-fleet"/></svg></span><span class="rx-tx"><b>Flotta e reporting</b><small>Report dalla nave alla compagnia.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="8"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-qual"/></svg></span><span class="rx-tx"><b>Qualità e ispezioni</b><small>SMS digitale, audit e azioni correttive.</small></span><span class="rx-prog"><i></i></span></button></div>
+      <div class="rx-tabs" role="tablist" aria-label="Moduli"><button class="rx-tab on" type="button" role="tab" aria-selected="true" data-i="0"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-ops"/></svg></span><span class="rx-tx"><b>Operazioni di bordo</b><small>Checklist digitali, procedure e firme dal tablet.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="1"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cargo"/></svg></span><span class="rx-tx"><b>Gestione carico</b><small>Operazioni di carico e documentazione delle merci.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="2"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-crew"/></svg></span><span class="rx-tx"><b>Equipaggio</b><small>Personale, imbarchi, ore di lavoro e riposo.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="3"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-cert"/></svg></span><span class="rx-tx"><b>Certificati e scadenze</b><small>Documenti di nave ed equipaggio, con avvisi.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="4"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-safe"/></svg></span><span class="rx-tx"><b>Sicurezza e addestramento</b><small>Esercitazioni, formazione e security.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="5"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-maint"/></svg></span><span class="rx-tx"><b>Manutenzione e inventari</b><small>Sala macchine, ricambi e dotazioni.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="6"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-nav"/></svg></span><span class="rx-tx"><b>Navigazione</b><small>Pianificazione del viaggio e briefing.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="7"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-fleet"/></svg></span><span class="rx-tx"><b>Flotta e reporting</b><small>Report dalla nave alla compagnia.</small></span><span class="rx-prog"><i></i></span></button><button class="rx-tab" type="button" role="tab" aria-selected="false" data-i="8"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#e-qual"/></svg></span><span class="rx-tx"><b>Qualità e ispezioni</b><small>SMS digitale, audit e azioni correttive.</small></span><span class="rx-prog"><i></i></span></button><a class="rx-more" href="#su-misura"><span class="rx-ic"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></span><span class="rx-tx"><b>E molto altro</b><small>Moduli su misura, costruiti sulle procedure della tua compagnia.</small></span></a></div>
       <div class="rx-panel"><div class="rx-win">
         <div class="rx-bar"><span class="dots"><i></i><i></i><i></i></span><span class="rx-title" data-rxt>Operazioni di bordo</span><span class="rx-brand"><svg><use href="#logo"/></svg>nodo</span></div>
         <div class="rx-body"><div class="rx-view on" data-i="0" role="tabpanel"><div class="rv-k"><b>Checklist di oggi</b><span class="pill p-run">4 attive</span></div><div class="rr" style="--i:0"><b>Controllo pre-partenza</b><span class="rbar"><i style="--w:100%"></i></span><small>Completata</small></div><div class="rr" style="--i:1"><b>Ronda sala macchine</b><span class="rbar"><i style="--w:70%"></i></span><small>In corso</small></div><div class="rr" style="--i:2"><b>Dotazioni di sicurezza</b><span class="rbar"><i style="--w:45%"></i></span><small>In corso</small></div><div class="rr" style="--i:3"><b>Controllo ormeggi</b><span class="rbar"><i style="--w:0%"></i></span><small>Da avviare</small></div></div><div class="rx-view" data-i="1" role="tabpanel"><div class="rv-k"><b>Piano di carico</b><span class="pill p-cy">Viaggio 214</span></div><div class="rr" style="--i:0"><b>Stiva 1</b><span class="rbar"><i style="--w:86%"></i></span><small>86%</small></div><div class="rr" style="--i:1"><b>Stiva 2</b><span class="rbar"><i style="--w:72%"></i></span><small>72%</small></div><div class="rr" style="--i:2"><b>Stiva 3</b><span class="rbar"><i style="--w:94%"></i></span><small>94%</small></div><div class="rr" style="--i:3"><b>Cisterna 4P</b><span class="rbar"><i style="--w:58%"></i></span><small>58%</small></div><div class="rr" style="--i:4"><b>Cisterna 4S</b><span class="rbar"><i style="--w:61%"></i></span><small>61%</small></div><div class="rtags" style="--i:5"><span>MSDS</span><span>Merci pericolose</span><span>Sequenza di carico</span></div></div><div class="rx-view" data-i="2" role="tabpanel"><div class="rv-k"><b>Equipaggio a bordo</b><span class="pill p-ok">18 persone</span></div><div class="rr c4" style="--i:0"><b>L. Bianchi</b><span>Primo ufficiale</span><span>Imbarco 12/03</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:1"><b>M. Rossi</b><span>Direttore di macchina</span><span>Imbarco 02/02</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:2"><b>A. Greco</b><span>Nostromo</span><span>Imbarco 20/03</span><span class="pill p-ok">Conforme</span></div><div class="rr c4" style="--i:3"><b>S. Conti</b><span>Marinaio</span><span>Imbarco 28/03</span><span class="pill p-am">Da firmare</span></div></div><div class="rx-view" data-i="3" role="tabpanel"><div class="rv-k"><b>Scadenze</b><span class="pill p-am">2 in arrivo</span></div><div class="rr" style="--i:0"><b>Classe</b><span class="rbar"><i style="--w:82%"></i></span><small>14 mesi</small></div><div class="rr warn" style="--i:1"><b>ISM / ISPS</b><span class="rbar"><i style="--w:12%"></i></span><small>30 giorni</small></div><div class="rr warn" style="--i:2"><b>Radio</b><span class="rbar"><i style="--w:18%"></i></span><small>45 giorni</small></div><div class="rr" style="--i:3"><b>Bordo libero</b><span class="rbar"><i style="--w:64%"></i></span><small>9 mesi</small></div><div class="rr" style="--i:4"><b>STCW · GMDSS</b><span class="rbar"><i style="--w:55%"></i></span><small>7 mesi</small></div></div><div class="rx-view" data-i="4" role="tabpanel"><div class="rv-k"><b>Piano esercitazioni</b><span class="pill p-run">Questo mese</span></div><div class="rr c3" style="--i:0"><b>Incendio</b><span>Lun 10:00</span><span class="pill p-ok">Svolta</span></div><div class="rr c3" style="--i:1"><b>Abbandono nave</b><span>Mer 15:00</span><span class="pill p-ok">Svolta</span></div><div class="rr c3" style="--i:2"><b>Uomo a mare</b><span>Ven 10:00</span><span class="pill p-idle">Pianificata</span></div><div class="rr c3" style="--i:3"><b>Security ISPS</b><span>Sab 09:00</span><span class="pill p-idle">Pianificata</span></div></div><div class="rx-view" data-i="5" role="tabpanel"><div class="rv-k"><b>Sala macchine</b><span class="pill p-cy">Ore di moto</span></div><div class="gauges"><div class="gg" style="--i:0"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:72"/></svg><b>12.430 h</b><small>Motore principale</small></div><div class="gg" style="--i:1"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:48"/></svg><b>8.210 h</b><small>Generatore 1</small></div><div class="gg" style="--i:2"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle class="v" cx="40" cy="40" r="32" style="--w:55"/></svg><b>8.940 h</b><small>Generatore 2</small></div></div><div class="rr warn" style="--i:4"><b>Filtri olio</b><span class="rbar"><i style="--w:30%"></i></span><small>Sotto scorta</small></div></div><div class="rx-view" data-i="6" role="tabpanel"><div class="rv-k"><b>Passage plan</b><span class="pill p-run">Genova → Valencia</span></div><svg class="rmap" viewBox="0 0 560 230"><g stroke="rgba(36,99,232,.12)"><path d="M0 57H560M0 115H560M0 172H560M112 0V230M224 0V230M336 0V230M448 0V230"/></g><path class="rt" d="M40 190L130 150L200 160L300 110L400 95L520 40" pathLength="1"/><g class="wp"><circle cx="40" cy="190" r="7"/><circle cx="130" cy="150" r="6"/><circle cx="200" cy="160" r="6"/><circle cx="300" cy="110" r="6"/><circle cx="400" cy="95" r="6"/><circle cx="520" cy="40" r="7"/></g></svg><div class="rtags" style="--i:3"><span>Meteo</span><span>NAVAREA</span><span>Valutazione rischi</span><span>Briefing</span></div></div><div class="rx-view" data-i="7" role="tabpanel"><div class="rv-k"><b>Noon report · flotta</b><span class="pill p-ok">Inviati 6/6</span></div><div class="bars"><i style="--h:62%;--i:0"></i><i style="--h:80%;--i:1"></i><i style="--h:55%;--i:2"></i><i style="--h:90%;--i:3"></i><i style="--h:72%;--i:4"></i><i style="--h:84%;--i:5"></i><i style="--h:68%;--i:6"></i></div><div class="rtags" style="--i:4"><span>Consumi</span><span>Performance</span><span>Ritardi</span><span>Posizione</span></div></div><div class="rx-view" data-i="8" role="tabpanel"><div class="rv-k"><b>Ispezioni e SMS</b><span class="pill p-vio">1 azione aperta</span></div><div class="rr c3" style="--i:0"><b>Ispezione PSC</b><span>MV Tirreno</span><span class="pill p-ok">Chiusa</span></div><div class="rr c3" style="--i:1"><b>Visita di classe</b><span>MV Adriatica</span><span class="pill p-ok">Chiusa</span></div><div class="rr c3" style="--i:2"><b>Vetting</b><span>MV Ligure</span><span class="pill p-am">Azione aperta</span></div><div class="rr c3" style="--i:3"><b>Audit interno SMS</b><span>Flotta</span><span class="pill p-idle">Pianificato</span></div></div></div>
@@ -1660,6 +1667,22 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 </section>
 
 
+<!-- ============ METRICS ============ -->
+<section class="sec bg-ice2" id="benefici" aria-labelledby="ben-title">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">I Benefici</p>
+      <h2 class="h2" id="ben-title">Digitalizzare significa risparmiare tempo e risorse.</h2>
+    </div>
+    <div class="metrics">
+      <div class="metric rv"><span class="val"><span data-count="5750">5.750</span><small>h</small><sup>*</sup></span><p>ore di lavoro risparmiate</p></div>
+      <div class="metric rv" style="--d:1"><span class="val"><span data-count="100000">100.000</span><small>+</small><sup>*</sup></span><p>fogli di carta non stampati</p></div>
+      <div class="metric rv" style="--d:2"><span class="val"><span data-count="350">350</span><small>kg</small><sup>*</sup></span><p>di CO₂ in meno</p></div>
+    </div>
+    <p class="note metrics-note">* Valori stimati su base annua. Non costituiscono un risultato garantito: i benefici effettivi dipendono dal numero di imbarcazioni, dalle procedure e dalle modalità di utilizzo.</p>
+  </div>
+</section>
+
 <!-- ============ PLATFORMS ============ -->
 <section class="sec" id="piattaforme" aria-labelledby="plat-title">
   <div class="wrap">
@@ -1770,28 +1793,23 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Accesso amministrativo separato da quello di bordo</li>
         </ul>
       </div>
+      <div class="plat-col rv" style="--d:2">
+        <span class="tag">Sempre con te</span>
+        <h3>App mobile personale</h3>
+        <p>Ogni marittimo ha il proprio profilo sullo smartphone, con i suoi documenti professionali sempre a portata di mano.</p>
+        <ul>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Profilo personale del marittimo</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Certificati di addestramento sempre consultabili</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Avvisi sulle scadenze di certificati e visite</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Libretto di navigazione digitale</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ METRICS ============ -->
-<section class="sec bg-ice" id="benefici" aria-labelledby="ben-title">
-  <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">I Benefici</p>
-      <h2 class="h2" id="ben-title">Digitalizzare significa risparmiare tempo e risorse.</h2>
-    </div>
-    <div class="metrics">
-      <div class="metric rv"><span class="val"><span data-count="5750">5.750</span><small>h</small><sup>*</sup></span><p>ore di lavoro risparmiate</p></div>
-      <div class="metric rv" style="--d:1"><span class="val"><span data-count="100000">100.000</span><small>+</small><sup>*</sup></span><p>fogli di carta non stampati</p></div>
-      <div class="metric rv" style="--d:2"><span class="val"><span data-count="350">350</span><small>kg</small><sup>*</sup></span><p>di CO₂ in meno</p></div>
-    </div>
-    <p class="note metrics-note">* Valori stimati su base annua. Non costituiscono un risultato garantito: i benefici effettivi dipendono dal numero di imbarcazioni, dalle procedure e dalle modalità di utilizzo.</p>
   </div>
 </section>
 
 <!-- ============ HARDWARE ============ -->
-<section class="sec" id="hardware" aria-labelledby="hw-title">
+<section class="sec bg-fog" id="hardware" aria-labelledby="hw-title">
   <div class="wrap">
     <div class="head rv">
       <p class="eyebrow">Hardware</p>
@@ -2210,7 +2228,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const reduce = (() => { try { return localStorage.getItem("ns-motion") === "off"; } catch (e) { return false; } })();
+  const reduce = (() => { try { localStorage.removeItem("ns-motion"); const v = sessionStorage.getItem("ns-motion-once") === "off"; sessionStorage.removeItem("ns-motion-once"); return v; } catch (e) { return false; } })();
   if (reduce) document.documentElement.classList.add("rm");
   const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   const nowHM = () => { const d = new Date(); return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); };
@@ -2618,7 +2636,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   } else {
     sws.forEach(w => w.classList.add("lit"));
     flowFill.style.transform = "none"; flowLis.forEach(li => li.classList.add("lit"));
-    stepsFill.style.transform = "none"; stepLis.forEach(li => li.classList.add("lit"));
+    if (stepsFill) stepsFill.style.transform = "none"; stepLis.forEach(li => li.classList.add("lit"));
     requestAnimationFrame(() => { hRender(.66, 0); harm.style.visibility = "hidden"; });
     $("#hPlay").hidden = true;
   }
@@ -2716,7 +2734,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
   /* ---------- motion toggle ---------- */
   const mt = $("#motionToggle");
   if (mt) { mt.textContent = reduce ? "Attiva animazioni" : "Riduci animazioni";
-    mt.addEventListener("click", () => { try { localStorage.setItem("ns-motion", reduce ? "on" : "off"); } catch (e) {} location.reload(); }); }
+    mt.addEventListener("click", () => { try { if (!reduce) sessionStorage.setItem("ns-motion-once", "off"); } catch (e) {} location.reload(); }); }
 
   /* ---------- copy buttons ---------- */
   $$("[data-copy]").forEach(b => b.addEventListener("click", async () => {
@@ -2747,7 +2765,7 @@ Le aziende che non si adattano saranno lasciate indietro”.<br><br>
 <p><small>Ultimo aggiornamento: novembre 2026.</small></p>`],
     cookie: ["Cookie policy", `
 <p><b>Questo sito non usa cookie di profilazione né strumenti di statistica o pubblicità.</b> Per questo motivo non viene mostrato alcun banner per il consenso.</p>
-<p><b>Memorizzazione locale tecnica</b><br>Se scegli "Riduci animazioni", il sito salva questa preferenza nella memoria del tuo browser (localStorage), con la voce <i>ns-motion</i>. Non contiene dati personali, non viene inviata a nessuno e serve solo a ricordare la tua scelta. Puoi cancellarla in qualsiasi momento dalle impostazioni del browser.</p>
+<p><b>Memorizzazione locale tecnica</b><br>Se scegli "Riduci animazioni", il sito salva per un istante questa scelta nella memoria di sessione del tuo browser (sessionStorage), con la voce <i>ns-motion-once</i>, solo per ricaricare la pagina senza animazioni. La voce viene cancellata subito dopo: ricaricando di nuovo la pagina torni alla versione con le animazioni. Non contiene dati personali e non viene inviata a nessuno.</p>
 <p><b>Servizi di terze parti</b><br>Il sito è ospitato su GitHub Pages, che può registrare dati tecnici di navigazione per motivi di sicurezza. L'invio del modulo di contatto passa da Formspree, che riceve solo i dati che inserisci nel modulo. Per i dettagli consulta le rispettive informative: GitHub (docs.github.com/site-policy) e Formspree (formspree.io/legal/privacy-policy).</p>
 <p><b>Contatti</b><br>Per domande su questa policy scrivi a info@nodosolutions.it.</p>
 <p><small>Ultimo aggiornamento: novembre 2026.</small></p>`]
